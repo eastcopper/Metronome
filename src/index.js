@@ -26,10 +26,18 @@ function playSound() {
     sound.play();
 }
 
-function bpmStart() {
-    play = true;
-    time = setInterval(playSound, realBpm(inputValue));
+function onoff() {
+    if (!play) {
+        play = true;
+        time = setInterval(playSound, realBpm(inputValue));
+        start.innerHTML = "stop";
+    }
+    else {
+        play = false;
+        clearInterval(time);
+        start.innerHTML = "start";
+    }
 }
 
 input.addEventListener("input", range);
-start.addEventListener("click", bpmStart);
+start.addEventListener("click", onoff);
