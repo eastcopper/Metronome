@@ -9,6 +9,7 @@ let time2 = null;
 let inputValue = 60;
 let sound = new Audio("../asset/sound.wav");
 let play = false;
+let click = false;
 
 function range() {
     inputValue = document.getElementById('input').value;
@@ -21,14 +22,24 @@ function range() {
     }
 }
 
+let point = 0;
 function circle() {
     circle1.classList.add('increase');
     circle2.classList.add('increase');
+    click = true;
     setTimeout(function () {
+        click = false;
         circle1.classList.remove('increase');
         circle2.classList.remove('increase');
     }, 100)
 }
+
+circle2.addEventListener('click', function () {
+    if (click) {
+        point += 1;
+        console.log(point);
+    }
+})
 
 function realBpm(bpm) {
     return (60 * 1000) / bpm;
