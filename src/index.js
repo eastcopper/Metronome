@@ -56,13 +56,13 @@ function onoff() {
         play = true;
         time1 = setInterval(circle, realBpm(inputValue));
         time2 = setInterval(playSound, realBpm(inputValue));
-        start.innerHTML = "stop";
+        start.innerHTML = "STOP";
     }
     else {
         play = false;
         clearInterval(time1);
         clearInterval(time2);
-        start.innerHTML = "start";
+        start.innerHTML = "START";
     }
 }
 
