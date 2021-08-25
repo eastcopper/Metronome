@@ -1,7 +1,8 @@
-main {
+main {  
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px;
 }
 
 #bpmValue {
@@ -17,4 +18,36 @@ main {
     height: 30px;
     font-size: 20px;
     border-radius: 12px;
+}
+
+#bpmCircle {
+    width: 70px;
+    height: 70px;
+}
+
+#clickCircle {
+    width: 200px;
+    height: 200px;
+    font-size: 50px;
+}
+
+.circle {
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#board {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+#bpm {
+    display: inline-flex;
 }
