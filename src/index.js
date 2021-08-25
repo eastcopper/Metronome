@@ -10,11 +10,12 @@ function range() {
 }
 
 setInterval(function() {
-    
+    playSound();
 }, 60000 / inputValue);
 
 function playSound() {
     sound.currentTime = 0;
+    sound.volume = 0.5;
     sound.play();
  }
 
