@@ -32,6 +32,7 @@ main {
 }
 
 .circle {
+    transition: all .1s ease;
     border-radius: 50%;
     border: 1px solid black;
     background-color: white;
@@ -50,4 +51,8 @@ main {
 
 #bpm {
     display: inline-flex;
+}
+
+.increase {
+    transform: scale(1.1);
 }

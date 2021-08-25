@@ -2,7 +2,8 @@ const bpmValue = document.getElementById('bpmValue');
 const input = document.getElementById('input');
 const start = document.getElementById('start');
 
-let time = null;
+let time1 = null;
+let time2 = null;
 let inputValue = 60;
 let sound = new Audio("../asset/sound.wav");
 let play = false;
@@ -11,9 +12,15 @@ function range() {
     inputValue = document.getElementById('input').value;
     bpmValue.innerHTML = `${inputValue} BPM`;
     if (play) {
-        clearInterval(time);
-        time = setInterval(playSound, realBpm(inputValue));
+        clearInterval(time1);
+        clearInterval(time2)
+        time1 = setInterval(playSound, realBpm(inputValue));
+        time2 = setInterval(circle, realBpm(inputValue));
     }
+}
+
+function circle() {
+    console.log('asfd');
 }
 
 function realBpm(bpm) {
@@ -29,12 +36,14 @@ function playSound() {
 function onoff() {
     if (!play) {
         play = true;
-        time = setInterval(playSound, realBpm(inputValue));
+        time1 = setInterval(circle, realBpm(inputValue));
+        time2 = setInterval(playSound, realBpm(inputValue));
         start.innerHTML = "stop";
     }
     else {
         play = false;
-        clearInterval(time);
+        clearInterval(time1);
+        clearInterval(time2);
         start.innerHTML = "start";
     }
 }
