@@ -7,7 +7,7 @@ const circle2 = document.getElementsByClassName('circle')[1];
 let time1 = null;
 let time2 = null;
 let inputValue = 60;
-let sound = new Audio("../asset/sound.wav");
+let sound = new Audio("../asset/sound/sound.wav");
 let play = false;
 let click = false;
 
