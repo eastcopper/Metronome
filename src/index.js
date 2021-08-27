@@ -33,26 +33,28 @@ function circle() {
         circle2.classList.remove('increase'); // 작아지는 애니메이션
         setTimeout(function () {
             click = false;
-        }, 100)
+        }, 50)
     }, 100)
 }
 
 circle2.addEventListener('click', function () {
-    if (click) {
-        effect.children[0].src = '../asset/img/perfect.png';
-        effect.classList.add('increase'); // perfect 이미지 띄우기
-        setTimeout(function() {
-            effect.classList.remove('increase');
-            effect.children[0].src = ' '; // perfect 이미지 지우기
-        }, 200)
-    }
-    else {
-        effect.children[0].src = '../asset/img/miss.png';
-        effect.classList.add('increase'); // miss 이미지 띄우기
-        setTimeout(function() {
-            effect.classList.remove('increase');
-            effect.children[0].src = ' '; // miss 이미지 지우기
-        }, 200)
+    if(play) {
+        if (click) {
+            effect.children[0].src = '../asset/img/perfect.png';
+            effect.classList.add('increase'); // perfect 이미지 띄우기
+            setTimeout(function() {
+                effect.classList.remove('increase');
+                effect.children[0].src = ' '; // perfect 이미지 지우기
+            }, 200)
+        }
+        else {
+            effect.children[0].src = '../asset/img/miss.png';
+            effect.classList.add('increase'); // miss 이미지 띄우기
+            setTimeout(function() {
+                effect.classList.remove('increase');
+                effect.children[0].src = ' '; // miss 이미지 지우기
+            }, 200)
+        }
     }
 })
 
