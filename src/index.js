@@ -3,6 +3,7 @@ const input = document.getElementById('input');
 const start = document.getElementById('start');
 const circle1 = document.getElementsByClassName('circle')[0];
 const circle2 = document.getElementsByClassName('circle')[1];
+const effect = document.getElementById('effect');
 
 let time1 = null;
 let time2 = null;
@@ -28,16 +29,22 @@ function circle() {
     circle2.classList.add('increase');
     click = true;
     setTimeout(function () {
-        click = false;
         circle1.classList.remove('increase');
         circle2.classList.remove('increase');
+        setTimeout(function () {
+            click = false;
+        }, 100)
     }, 100)
 }
 
 circle2.addEventListener('click', function () {
     if (click) {
-        point += 1;
-        console.log(point);
+        effect.children[0].src = '../asset/img/perfect.png';
+        effect.classList.add('increase');
+        setTimeout(function() {
+            effect.classList.remove('increase');
+            effect.children[0].src = ' ';
+        }, 200)
     }
 })
 
