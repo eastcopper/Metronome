@@ -20,17 +20,17 @@ function range() {
         clearInterval(time2);
         time1 = setInterval(playSound, realBpm(inputValue));
         time2 = setInterval(circle, realBpm(inputValue));
-    }
+    } // start 버튼을 눌렀을 때
 }
 
 let point = 0;
 function circle() {
     circle1.classList.add('increase');
-    circle2.classList.add('increase');
+    circle2.classList.add('increase'); // 커지는 애니메이션
     click = true;
     setTimeout(function () {
         circle1.classList.remove('increase');
-        circle2.classList.remove('increase');
+        circle2.classList.remove('increase'); // 작아지는 애니메이션
         setTimeout(function () {
             click = false;
         }, 100)
@@ -40,22 +40,22 @@ function circle() {
 circle2.addEventListener('click', function () {
     if (click) {
         effect.children[0].src = '../asset/img/perfect.png';
-        effect.classList.add('increase');
+        effect.classList.add('increase'); // perfect 이미지 띄우기
         setTimeout(function() {
             effect.classList.remove('increase');
-            effect.children[0].src = ' ';
+            effect.children[0].src = ' '; // perfect 이미지 지우기
         }, 200)
     }
 })
 
 function realBpm(bpm) {
-    return (60 * 1000) / bpm;
+    return (60 * 1000) / bpm; // bpm설정
 }
 
 function playSound() {
     sound.currentTime = 0;
     sound.volume = 0.3;
-    sound.play();
+    sound.play(); // 소리 재생
 }
 
 function onoff() {
@@ -63,14 +63,14 @@ function onoff() {
         play = true;
         time1 = setInterval(circle, realBpm(inputValue));
         time2 = setInterval(playSound, realBpm(inputValue));
-        start.innerHTML = "STOP";
+        start.innerHTML = "STOP"; // start 버튼을 눌렀을 때
     }
     else {
         play = false;
         clearInterval(time1);
         clearInterval(time2);
         start.innerHTML = "START";
-    }
+    } // stop 버튼을 눌렀을 때
 }
 
 input.addEventListener("input", range);
