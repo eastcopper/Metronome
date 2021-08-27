@@ -46,6 +46,14 @@ circle2.addEventListener('click', function () {
             effect.children[0].src = ' '; // perfect 이미지 지우기
         }, 200)
     }
+    else {
+        effect.children[0].src = '../asset/img/miss.png';
+        effect.classList.add('increase'); // miss 이미지 띄우기
+        setTimeout(function() {
+            effect.classList.remove('increase');
+            effect.children[0].src = ' '; // miss 이미지 지우기
+        }, 200)
+    }
 })
 
 function realBpm(bpm) {
