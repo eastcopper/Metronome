@@ -48,7 +48,7 @@ circle2.addEventListener('click', function () {
                 effect.classList.remove('increase');
                 effect.children[0].src = ' '; // perfect 이미지 지우기
                 combo += 1;
-                point += (100 * combo);
+                point += (100 * combo); // 점수 증가
             }, 200)
         }
         else {
@@ -62,11 +62,11 @@ circle2.addEventListener('click', function () {
                 }
                 else {
                     point = 0;
-                }
+                } // 점수 감소
                 combo = 0;
             }, 200)
         }
-        youPoint.innerHTML = `${point}`.padStart(6, '0');
+        youPoint.innerHTML = `${point}`.padStart(6, '0'); // 점수 띄우기
     }
 })
 
