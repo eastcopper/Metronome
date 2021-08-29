@@ -4,6 +4,7 @@ const start = document.getElementById('start');
 const circle1 = document.getElementsByClassName('circle')[0];
 const circle2 = document.getElementsByClassName('circle')[1];
 const effect = document.getElementById('effect');
+const youPoint = document.getElementById('point');
 
 let time1 = null;
 let time2 = null;
@@ -24,6 +25,7 @@ function range() {
 }
 
 let point = 0;
+let combo = 0;
 function circle() {
     circle1.classList.add('increase');
     circle2.classList.add('increase'); // 커지는 애니메이션
@@ -45,6 +47,8 @@ circle2.addEventListener('click', function () {
             setTimeout(function() {
                 effect.classList.remove('increase');
                 effect.children[0].src = ' '; // perfect 이미지 지우기
+                combo += 1;
+                point += (100 * combo);
             }, 200)
         }
         else {
@@ -53,8 +57,16 @@ circle2.addEventListener('click', function () {
             setTimeout(function() {
                 effect.classList.remove('increase');
                 effect.children[0].src = ' '; // miss 이미지 지우기
+                if (point >= 500) {
+                    point -= 500;
+                }
+                else {
+                    point = 0;
+                }
+                combo = 0;
             }, 200)
         }
+        youPoint.innerHTML = `${point}`.padStart(6, '0');
     }
 })
 
